@@ -15,6 +15,7 @@ greatest_dec = 0
 with open(pybankpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
+    print(csv_header)
     for row in csvreader:
         # counting the months for total months
         month_count = month_count + 1
@@ -28,10 +29,10 @@ with open(pybankpath, newline='') as csvfile:
         # storing the value of the greatest increase/decrease
         if int(row[1]) > greatest_inc:
             greatest_inc = int(row[1])
-            greatest_increase = f"Greatest increase in profit: {row[0]} (${row[1]})"
+            greatest_increase = f"Greatest Increase in Profits: {row[0]} (${row[1]})"
         elif int(row[1]) < greatest_dec:
             greatest_dec = int(row[1])
-            greatest_decrease = f"Greatest Decrease in profit: {row[0]} (${row[1]})"
+            greatest_decrease = f"Greatest Decrease in Profits: {row[0]} (${row[1]})"
     # calculate average change in profit/lose
     average_change = int(total_change)/int(month_count)
     #print all values obtained in requested format 
